@@ -6,52 +6,47 @@ void moverBispo();
 void moverRainha();
 
 int main() {
-    moverTorre();
-    moverBispo();
-    moverRainha();
+    moverTorre();   // Movimento da Torre com for
+    moverBispo();   // Movimento do Bispo com while
+    moverRainha();  // Movimento da Rainha com do-while
     return 0;
 }
 
-// Movimento da Torre: em linha reta (horizontal ou vertical)
+// Torre se move 5 casas para a direita
 void moverTorre() {
     printf("\nMovimento da Torre:\n");
-
-    int casas = 4; // Número de casas para mover
     int x = 4, y = 0;
 
-    for (int i = 0; i < casas; i++) {
-        y++;  // Movendo para a direita
-        printf("Direita\n");
-        printf("Casa %d: (%d, %d)\n", i + 1, x, y);
+    for (int i = 0; i < 5; i++) {
+        y++; // Move para a direita (aumenta y)
+        printf("Casa %d: Direita -> (%d, %d)\n", i + 1, x, y);
     }
 }
 
-// Movimento do Bispo: apenas na diagonal
+// Bispo se move 5 casas na diagonal: cima e direita
 void moverBispo() {
     printf("\nMovimento do Bispo:\n");
-
-    int casas = 4; // Número de casas para mover
     int x = 7, y = 0;
 
-    for (int i = 0; i < casas; i++) {
-        x--; // Movendo para cima
-        y++; // e para a direita (diagonal)
-        printf("Cima Direita\n");
-        printf("Casa %d: (%d, %d)\n", i + 1, x, y);
+    int i = 0;
+    while (i < 5) {
+        x--; // Cima (diminui x)
+        y++; // Direita (aumenta y)
+        printf("Casa %d: Cima, Direita -> (%d, %d)\n", i + 1, x, y);
+        i++;
     }
 }
 
-// Movimento da Rainha: pode ir em qualquer direção (linha reta ou diagonal)
+// Rainha se move 8 casas para a esquerda
 void moverRainha() {
     printf("\nMovimento da Rainha:\n");
-
-    int casas = 4; // Número de casas para mover
     int x = 3, y = 7;
 
-    // Movendo na horizontal para a esquerda
-    for (int i = 0; i < casas; i++) {
-        y--;
-        printf("Esquerda\n");
-        printf("Casa %d: (%d, %d)\n", i + 1, x, y);
-    }
+    int i = 0;
+    do {
+        y--; // Move para a esquerda (diminui y)
+        printf("Casa %d: Esquerda -> (%d, %d)\n", i + 1, x, y);
+        i++;
+    } while (i < 8);
 }
+
