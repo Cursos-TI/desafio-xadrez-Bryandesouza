@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Declaração das funções (protótipos)
+// Protótipos das funções
 void moverTorre();
 void moverBispo();
 void moverRainha();
@@ -12,40 +12,46 @@ int main() {
     return 0;
 }
 
-// Implementação da função da Torre
+// Movimento da Torre: em linha reta (horizontal ou vertical)
 void moverTorre() {
     printf("\nMovimento da Torre:\n");
+
+    int casas = 4; // Número de casas para mover
     int x = 4, y = 0;
 
-    for (int i = 0; i < 5; i++) {
-        y++;
-        printf("Casa %d: Direita -> (%d, %d)\n", i + 1, x, y);
+    for (int i = 0; i < casas; i++) {
+        y++;  // Movendo para a direita
+        printf("Direita\n");
+        printf("Casa %d: (%d, %d)\n", i + 1, x, y);
     }
 }
 
-// Implementação da função do Bispo
+// Movimento do Bispo: apenas na diagonal
 void moverBispo() {
     printf("\nMovimento do Bispo:\n");
+
+    int casas = 4; // Número de casas para mover
     int x = 7, y = 0;
 
-    int i = 0;
-    while (i < 5) {
-        x--;
-        y++;
-        printf("Casa %d: Cima, Direita -> (%d, %d)\n", i + 1, x, y);
-        i++;
+    for (int i = 0; i < casas; i++) {
+        x--; // Movendo para cima
+        y++; // e para a direita (diagonal)
+        printf("Cima Direita\n");
+        printf("Casa %d: (%d, %d)\n", i + 1, x, y);
     }
 }
 
-// Implementação da função da Rainha
+// Movimento da Rainha: pode ir em qualquer direção (linha reta ou diagonal)
 void moverRainha() {
     printf("\nMovimento da Rainha:\n");
+
+    int casas = 4; // Número de casas para mover
     int x = 3, y = 7;
 
-    int i = 0;
-    do {
+    // Movendo na horizontal para a esquerda
+    for (int i = 0; i < casas; i++) {
         y--;
-        printf("Casa %d: Esquerda -> (%d, %d)\n", i + 1, x, y);
-        i++;
-    } while (i < 8);
+        printf("Esquerda\n");
+        printf("Casa %d: (%d, %d)\n", i + 1, x, y);
+    }
 }
